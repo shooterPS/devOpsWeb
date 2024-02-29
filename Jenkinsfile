@@ -4,7 +4,7 @@ pipeline{
         maven 'loval_maven'
     }
     stages{
-        stage{'Build'}{
+        stage('Build'){
             steps{
                 sh 'mvn clean package'
             }
@@ -16,9 +16,9 @@ pipeline{
             }
 
         }
-        stage{'Deploy to tomcat server'}{
+        stage('Deploy to tomcat server'){
             steps{
-                deploy adapters: [tomcat7(credentialsId: 'e9f86c1d-d162-474c-bc0f-ffdc53d9fe4e', path: '', url: 'http://3.108.221.41:8282/')], contextPath: null, war: '**/*.war'
+               deploy adapters: [tomcat7(credentialsId: 'e9f86c1d-d162-474c-bc0f-ffdc53d9fe4e', path: '', url: 'https://3.108.221.41:8282/')], contextPath: null, war: '**/*.war'
             }
 
         }
