@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    tools{
+        maven 'loval_maven'
+    }
     stages{
         stage{'Build'}{
             steps{
